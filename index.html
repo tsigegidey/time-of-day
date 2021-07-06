@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Time of Day /title>
+    <title>Time of Day </title>
     <meta name="robots" content="noindex,nofollow" />
     <style>
 		* {padding:0; margin:0;}
@@ -59,6 +59,7 @@
 		<h1 class="masthead">Time of Day</h1>
 		
 	</header>
+	<h2 id="greeting">Greeting goes here </h2>
     <main>
 	 <header><h3>A Javascript example by Tsige Gebretsadek</h3></header>
 	 <p>This is a web page that uses JavaScript to determine the current hour, 
@@ -79,14 +80,60 @@
 
 
 
-	  <img src="http://dummyimage.com/300x400" alt="Picture of Me!" class="flexible" />
+	  <img id= "pic" src="http://dummyimage.com/300x400" alt="Picture of Me!" class="flexible" />
      </main>
     <footer>
-      <small>&copy; 2013, All Rights Reserved ~
+      <small> &copy; 2020 - <span id = "copyright"> copyright goes here </span> , All Rights Reserved ~
       <a href="https://validator.w3.org/check/referer" target="_blank">Valid HTML</a> ~
       <a href="https://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Valid CSS</a>
       </small>
     </footer>
-    <!-- END Footer -->
+    <script>
+          let myDate = new Date();
+
+          let myText = '';
+		  let myColor = '';
+		  let myPic = '';
+
+		  let myHour = myDate.getHours();
+
+             //myHour = 3;
+			 console.log(myHour);
+
+			if(myHour >= 5 && myHour < 12){
+				myText = "Good Morning!";
+				myColor = "orange";
+				myPic = "images/morning.jpg";
+
+
+			} else if (myHour >= 12 && myHour < 18){
+				myText = "Good Afternoon!";
+				myColor = "green";
+				myPic = "images/afternoon.jpg";
+
+            } else if (myHour >= 18 && myHour < 23){
+				myText = "Good Evening!";
+				myColor = "blue";
+				myPic = "images/evening.jpg";
+
+
+
+
+			}else{
+				myText = "Good Night!";
+				myColor = "purple";
+				myPic = "images/night.jpg";
+			}
+            //console.log(myText);
+			document.getElementById('greeting').innerHTML = myText;
+            document.getElementById('greeting').style.color = myColor;
+			document.querySelector("html").style.backgroundColor = myColor;
+            document.getElementById('pic').src = myPic;
+
+           let myYear = myDate.getFullYear();
+		   document.getElementById('copyright').innerHTML = myYear;
+
+	</script>
+	<!-- END Footer -->
 </body>
 </html>
